@@ -9,13 +9,16 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-        
-    @ObservedObject var cardViewModel = CardViewModel()
+    
+    //@ObservedObject var cardViewModel = CardViewModel()
+    
+    @State private var cardNumber: String = ""
+    @State private var expirationDate: String = ""
     
     var body: some View {
         VStack {
-            TextField("Card Number", text: $cardViewModel.cardNumber) { editing in
-                print("backing card number from VM: \(cardViewModel.backingCardNumber); length: \(cardViewModel.cardLength)")
+            TextField("Card Number", text: $cardNumber) { editing in
+                print("backing card number from VM: \(cardNumber); length: \(cardNumber.count)")
             } onCommit: {
                 print("committed change")
             }
@@ -23,7 +26,7 @@ struct ContentView: View {
             .keyboardType(.numberPad)
             
             HStack {
-                TextField("Exp Date", text: $cardViewModel.expirationDate) { editing in
+                TextField("Exp Date", text: $expirationDate) { editing in
                     print("exp date editing \(editing)")
                 } onCommit: {
                     print("committed changes")
@@ -32,8 +35,43 @@ struct ContentView: View {
                 .keyboardType(.numberPad)
                 Spacer()
             }
+            
+            ValidationView()
         }
         .padding()
+    }
+}
+
+struct ValidationView: View {
+    
+    @State private var textToValidate: String = ""
+    
+    var body: some View {
+        
+        VStack {
+            TextField("Validate Me", text: $textToValidate)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.alphabet)
+            ValidationView()
+            ValidationView()
+            ValidationView()
+            ValidationView()
+        }
+    }
+}
+
+struct ValidationCriteriaView: View {
+    
+    @State private var isValid: Bool
+    var validationText: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "xmark.circle.fill")
+            Text(validationText)
+                .font(.body)
+        }
+        
     }
 }
 
@@ -62,6 +100,7 @@ final class CardViewModel: ObservableObject {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ContentView()
     }

@@ -11,6 +11,7 @@
 		942E9CE126506FD4001CC18B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E9CE026506FD4001CC18B /* ContentView.swift */; };
 		942E9CE326506FD5001CC18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942E9CE226506FD5001CC18B /* Assets.xcassets */; };
 		942E9CE626506FD5001CC18B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 942E9CE526506FD5001CC18B /* Preview Assets.xcassets */; };
+		94AED1DC274806CE00C019A8 /* ScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AED1DB274806CE00C019A8 /* ScanButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		942E9CE226506FD5001CC18B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		942E9CE526506FD5001CC18B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		942E9CE726506FD5001CC18B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94AED1DB274806CE00C019A8 /* ScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				942E9CDE26506FD4001CC18B /* CreditCardFormatterApp.swift */,
 				942E9CE026506FD4001CC18B /* ContentView.swift */,
+				94AED1DB274806CE00C019A8 /* ScanButton.swift */,
 				942E9CE226506FD5001CC18B /* Assets.xcassets */,
 				942E9CE726506FD5001CC18B /* Info.plist */,
 				942E9CE426506FD5001CC18B /* Preview Content */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				942E9CE126506FD4001CC18B /* ContentView.swift in Sources */,
+				94AED1DC274806CE00C019A8 /* ScanButton.swift in Sources */,
 				942E9CDF26506FD4001CC18B /* CreditCardFormatterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +276,7 @@
 				DEVELOPMENT_TEAM = GAW47D4MAE;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CreditCardFormatter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +298,7 @@
 				DEVELOPMENT_TEAM = GAW47D4MAE;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CreditCardFormatter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

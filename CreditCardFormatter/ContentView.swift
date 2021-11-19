@@ -17,13 +17,19 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            TextField("Card Number", text: $cardNumber) { editing in
-                print("backing card number from VM: \(cardNumber); length: \(cardNumber.count)")
-            } onCommit: {
-                print("committed change")
+            HStack {
+                TextField("Card Number", text: $cardNumber) { editing in
+                    print("backing card number from VM: \(cardNumber); length: \(cardNumber.count)")
+                } onCommit: {
+                    print("committed change")
+                }
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .textContentType(.creditCardNumber)
+                .keyboardType(.numberPad)
+                ScanButton(text: $cardNumber)
+                  .frame(width: 100, height: 56, alignment: .leading)
             }
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .keyboardType(.numberPad)
+           
             
             HStack {
                 TextField("Exp Date", text: $expirationDate) { editing in
@@ -31,12 +37,19 @@ struct ContentView: View {
                 } onCommit: {
                     print("committed changes")
                 }
+                .textContentType(.dateTime)
+                .toolbar(content: {
+                  ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    ScanButton(text: $expirationDate)
+                  }
+                })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 Spacer()
             }
             
-            ValidationView()
+            //ValidationView()
         }
         .padding()
     }
@@ -99,17 +112,18 @@ final class CardViewModel: ObservableObject {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        ContentView()
-    }
-}
-
 extension String {
     var isNumeric: Bool {
         guard self.count > 0 else { return false }
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         return Set(self).isSubset(of: nums)
+    }
+}
+
+// MARK: - Preview
+struct ContentView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        ContentView()
     }
 }

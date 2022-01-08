@@ -26,8 +26,9 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .textContentType(.creditCardNumber)
                 .keyboardType(.numberPad)
+                
                 ScanButton(text: $cardNumber)
-                  .frame(width: 100, height: 56, alignment: .leading)
+                  .frame(width: 26, height: 56, alignment: .leading)
             }
            
             

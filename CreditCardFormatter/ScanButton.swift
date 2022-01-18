@@ -8,10 +8,18 @@
 import Foundation
 import SwiftUI
 
+enum ScanTypes {
+    case routingNumber, bankAcctNumber, creditCard, vehicleID, notSpecified
+    init() {
+        self = .notSpecified
+    }
+}
+
 struct ScanButton: UIViewRepresentable {
     
     @Binding var text: String
-    //@Binding var title: String
+    
+    let scanType = ScanTypes()
     
     func makeUIView(context: Context) -> UIButton {
         

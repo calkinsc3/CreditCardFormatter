@@ -14,6 +14,7 @@ struct ContentView: View {
     
     @State private var cardNumber: String = ""
     @State private var expirationDate: String = ""
+    @State private var sleepAmount = 8.0
     
     var body: some View {
         VStack {
@@ -48,6 +49,10 @@ struct ContentView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 Spacer()
+            }
+            
+            HStack {
+                Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12)
             }
             
             //ValidationView()
